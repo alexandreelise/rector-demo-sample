@@ -6,7 +6,6 @@ use Rector\CodeQuality\Rector\FuncCall\SetTypeToCastRector;
 use Rector\CodeQuality\Rector\LogicalAnd\LogicalToBooleanRector;
 use Rector\CodeQuality\Rector\NotEqual\CommonNotEqualRector;
 use Rector\Config\RectorConfig;
-use Rector\Core\Configuration\Option;
 use Rector\DeadCode\Rector\ClassMethod\RemoveEmptyClassMethodRector;
 use Rector\DeadCode\Rector\Node\RemoveNonExistingVarAnnotationRector;
 use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
@@ -29,13 +28,8 @@ return static function (RectorConfig $rectorConfig): void {
 	
 	// define sets of rules
 	$rectorConfig->sets([
-		SetList::NAMING,
-		SetList::MYSQL_TO_MYSQLI,
-		SetList::CODE_QUALITY,
+		SetList::DEAD_CODE,
 	]);
-	
-	$rectorConfig->importNames();
-	$rectorConfig->parameters()->set(Option::APPLY_AUTO_IMPORT_NAMES_ON_CHANGED_FILES_ONLY, true);
 	
 	$rectorConfig->skip(
 		[

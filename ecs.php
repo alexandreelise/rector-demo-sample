@@ -7,6 +7,7 @@ use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return static function (ECSConfig $ecsConfig): void {
 	$ecsConfig->paths([
+		__DIR__ . '/libraries/src',
 		__DIR__ . '/src',
 	]);
 	

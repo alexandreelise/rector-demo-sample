@@ -13,6 +13,9 @@ final class Util
 {
 	public static function hello()
 	{
+		$deadCode = new DeadCode();
+		$deadCode->noop();
+		
 		return 'Hi Rector Team!';
 	}
 }

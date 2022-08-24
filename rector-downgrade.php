@@ -10,7 +10,7 @@ use Rector\Core\Configuration\Option;
 use Rector\DeadCode\Rector\ClassMethod\RemoveEmptyClassMethodRector;
 use Rector\DeadCode\Rector\Node\RemoveNonExistingVarAnnotationRector;
 use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
-use Rector\Set\ValueObject\SetList;
+use Rector\Set\ValueObject\DowngradeLevelSetList;
 
 
 return static function (RectorConfig $rectorConfig): void {
@@ -29,13 +29,12 @@ return static function (RectorConfig $rectorConfig): void {
 	
 	// define sets of rules
 	$rectorConfig->sets([
-		SetList::NAMING,
-		SetList::MYSQL_TO_MYSQLI,
-		SetList::CODE_QUALITY,
+		DowngradeLevelSetList::DOWN_TO_PHP_72,
 	]);
 	
 	$rectorConfig->importNames();
 	$rectorConfig->parameters()->set(Option::APPLY_AUTO_IMPORT_NAMES_ON_CHANGED_FILES_ONLY, true);
+	
 	
 	$rectorConfig->skip(
 		[

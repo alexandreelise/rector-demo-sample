@@ -8,7 +8,6 @@ declare(strict_types=1);
  */
 
 namespace App;
-use \Acme\Tools\Unused;
 
 /**
  * Sample

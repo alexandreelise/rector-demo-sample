@@ -11,6 +11,9 @@ namespace App\Tests;
 
 use App\Sample;
 use PHPUnit\Framework\TestCase;
+use function ob_end_clean;
+use function ob_get_contents;
+use function ob_start;
 
 /**
  * SampleTest
@@ -30,10 +33,13 @@ class SampleTest extends TestCase
 		$sample = new Sample();
 		
 		//When: I use __invoke
-		$actual = $sample();
+		ob_start();
+		$sample();
+		$actual = ob_get_contents();
+		ob_end_clean();
 		
 		//Then: I should get "Hi Rector Team"
-		$expected = 'Hi Rector Team';
+		$expected = 'Hi Rector Team!';
 		$this->assertSame($expected, $actual);
 	}
 }
